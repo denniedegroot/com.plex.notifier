@@ -1,0 +1,10 @@
+{
+    "pair": {
+        "title": "Log in met je Plex PIN",
+        "pinManual": "Om in te loggen ga naar https://plex.tv/link en gebruik de code hieronder.",
+        "pinLoading": "Plex PIN ophalen...",
+        "pinError": "Ophalen Plex PIN mislukt",
+        "tokenError": "Ophalen Plex Token mislukt",
+        "nextButton": "Volgende"
+    }
+}

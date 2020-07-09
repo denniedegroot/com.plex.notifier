@@ -1,0 +1,10 @@
+{
+    "pair": {
+        "title": "Login with your Plex PIN",
+        "pinManual": "To sign in, visit https://plex.tv/link and enter the code below.",
+        "pinLoading": "Loading Plex PIN...",
+        "pinError": "Failed to get Plex PIN",
+        "tokenError": "Failed to get Plex Token",
+        "nextButton": "Next"
+    }
+}
