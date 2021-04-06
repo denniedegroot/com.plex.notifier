@@ -1,310 +1,359 @@
 {
-    "id": "com.plex.notifier",
-    "version": "1.0.1",
-    "compatibility": ">=5.0.0",
-    "sdk": 3,
-    "name": {
-        "en": "Plex Notifier"
-    },
-    "description": {
-        "en": "Let Plex Media Player trigger your Homey"
-    },
-    "category": "video",
-    "permissions": [],
-    "images": {
-        "large": "assets/images/large.png",
-        "small": "assets/images/small.png"
-    },
-    "author": {
-        "name": "Dennie de Groot",
-        "email": "mail@denniedegroot.nl",
-        "website": "https://denniedegroot.nl"
-    },
-    "contributing": {
-        "donate": {
-            "paypal": {
-                "username": "denniedegroot"
+  "id": "com.plex.notifier",
+  "version": "1.0.2",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "name": {
+    "en": "Plex Notifier"
+  },
+  "description": {
+    "en": "Let Plex Media Player trigger your Homey"
+  },
+  "category": "video",
+  "permissions": [],
+  "images": {
+    "large": "assets/images/large.png",
+    "small": "assets/images/small.png"
+  },
+  "author": {
+    "name": "Dennie de Groot",
+    "email": "mail@denniedegroot.nl",
+    "website": "https://denniedegroot.nl"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "denniedegroot"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/denniedegroot/com.plex.notifier/issues"
+  },
+  "source": "https://github.com/denniedegroot/com.plex.notifier",
+  "flow": {
+    "triggers": [
+      {
+        "id": "plex_playing",
+        "title": {
+          "en": "Plex starts playing"
+        },
+        "hint": {
+          "en": "Cards can use the following tokens. PLAYER: The player name as reported by Plex. USER: The username of the person playing the media. TITLE: The current title of the playing media, i.e. 'Ghostbusters'. TYPE: The type of media playing, available options are 'movie', 'show', 'track', 'picture'."
+        },
+        "tokens": [
+          {
+            "name": "type",
+            "type": "string",
+            "title": {
+              "en": "Type"
+            },
+            "example": {
+              "en": "Movie"
             }
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "title": {
+              "en": "Title"
+            },
+            "example": {
+              "en": "Batman"
+            }
+          },
+          {
+            "name": "user",
+            "type": "string",
+            "title": {
+              "en": "User"
+            },
+            "example": {
+              "en": "Dennie de Groot"
+            }
+          },
+          {
+            "name": "player",
+            "type": "string",
+            "title": {
+              "en": "Player"
+            },
+            "example": {
+              "en": "NVIDIA Shield"
+            }
+          },
+          {
+            "name": "address",
+            "type": "string",
+            "title": {
+              "en": "IP address"
+            },
+            "example": {
+              "en": "192.168.1.1"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=plexserver"
+          }
+        ]
+      },
+      {
+        "id": "plex_stopped",
+        "title": {
+          "en": "Plex stops playing"
+        },
+        "hint": {
+          "en": "Cards can use the following tokens. PLAYER: The player name as reported by Plex. USER: The username of the person playing the media. TITLE: The current title of the playing media, i.e. 'Ghostbusters'. TYPE: The type of media playing, available options are 'movie', 'show', 'track', 'picture'."
+        },
+        "tokens": [
+          {
+            "name": "type",
+            "type": "string",
+            "title": {
+              "en": "Type"
+            },
+            "example": {
+              "en": "Movie"
+            }
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "title": {
+              "en": "Title"
+            },
+            "example": {
+              "en": "Batman"
+            }
+          },
+          {
+            "name": "user",
+            "type": "string",
+            "title": {
+              "en": "User"
+            },
+            "example": {
+              "en": "Dennie de Groot"
+            }
+          },
+          {
+            "name": "player",
+            "type": "string",
+            "title": {
+              "en": "Player"
+            },
+            "example": {
+              "en": "NVIDIA Shield"
+            }
+          },
+          {
+            "name": "address",
+            "type": "string",
+            "title": {
+              "en": "IP address"
+            },
+            "example": {
+              "en": "192.168.1.1"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=plexserver"
+          }
+        ]
+      },
+      {
+        "id": "plex_paused",
+        "title": {
+          "en": "Plex pauses"
+        },
+        "hint": {
+          "en": "Cards can use the following tokens. PLAYER: The player name as reported by Plex. USER: The username of the person playing the media. TITLE: The current title of the playing media, i.e. 'Ghostbusters'. TYPE: The type of media playing, available options are 'movie', 'show', 'track', 'picture'."
+        },
+        "tokens": [
+          {
+            "name": "type",
+            "type": "string",
+            "title": {
+              "en": "Type"
+            },
+            "example": {
+              "en": "Movie"
+            }
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "title": {
+              "en": "Title"
+            },
+            "example": {
+              "en": "Batman"
+            }
+          },
+          {
+            "name": "user",
+            "type": "string",
+            "title": {
+              "en": "User"
+            },
+            "example": {
+              "en": "Dennie de Groot"
+            }
+          },
+          {
+            "name": "player",
+            "type": "string",
+            "title": {
+              "en": "Player"
+            },
+            "example": {
+              "en": "NVIDIA Shield"
+            }
+          },
+          {
+            "name": "address",
+            "type": "string",
+            "title": {
+              "en": "IP address"
+            },
+            "example": {
+              "en": "192.168.1.1"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=plexserver"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "plex_is_playing",
+        "title": {
+          "en": "!{{Is playing|Is not playing}}"
+        },
+        "hint": {
+          "en": "Cards can use the following tokens. PLAYER: The player name as reported by Plex."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=plexserver"
+          },
+          {
+            "name": "player",
+            "type": "text",
+            "placeholder": {
+              "en": "Player name or ip address"
+            }
+          }
+        ]
+      },
+      {
+        "id": "plex_is_paused",
+        "title": {
+          "en": "!{{Is paused|Is not paused}}"
+        },
+        "hint": {
+          "en": "Cards can use the following tokens. PLAYER: The player name as reported by Plex."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=plexserver"
+          },
+          {
+            "name": "player",
+            "type": "text",
+            "placeholder": {
+              "en": "Player name or ip address"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "id": "plexserver",
+      "name": {
+        "en": "Plex Media Server",
+        "nl": "Plex Media Server"
+      },
+      "images": {
+        "large": "/drivers/plexserver/assets/images/large.png",
+        "small": "/drivers/plexserver/assets/images/small.png"
+      },
+      "class": "other",
+      "capabilities": [],
+      "pair": [
+        {
+          "id": "server_credentials",
+          "options": {
+            "logo": "/app/com.plex.notifier/assets/icon.svg"
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
         }
-    },
-    "bugs": {
-        "url": "https://github.com/denniedegroot/com.plex.notifier/issues"
-    },
-    "source": "https://github.com/denniedegroot/com.plex.notifier",
-    "flow": {
-        "triggers": [{
-            "id": "plex_playing",
-            "title": {
-                "en": "Plex starts playing"
+      ],
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "General settings",
+            "nl": "Algemene instellingen"
+          },
+          "children": [
+            {
+              "id": "host",
+              "type": "text",
+              "label": {
+                "en": "Plex Server Host",
+                "nl": "Plex Server Host"
+              }
             },
-            "hint": {
-                "en": "Cards can use the following tokens. PLAYER: The player name as reported by Plex. USER: The username of the person playing the media. TITLE: The current title of the playing media, i.e. 'Ghostbusters'. TYPE: The type of media playing, available options are 'movie', 'show', 'track', 'picture'."
+            {
+              "id": "port",
+              "type": "text",
+              "label": {
+                "en": "Plex Sever Port",
+                "nl": "Plex Sever Port"
+              }
             },
-            "tokens": [{
-                "name": "type",
-                "type": "string",
-                "title": {
-                    "en": "Type"
-                },
-                "example": {
-                    "en": "Movie"
-                }
-            }, {
-                "name": "title",
-                "type": "string",
-                "title": {
-                    "en": "Title"
-                },
-                "example": {
-                    "en": "Batman"
-                }
-            }, {
-                "name": "user",
-                "type": "string",
-                "title": {
-                    "en": "User"
-                },
-                "example": {
-                    "en": "Dennie de Groot"
-                }
-            }, {
-                "name": "player",
-                "type": "string",
-                "title": {
-                    "en": "Player"
-                },
-                "example": {
-                    "en": "NVIDIA Shield"
-                }
-            }, {
-                "name": "address",
-                "type": "string",
-                "title": {
-                    "en": "IP address"
-                },
-                "example": {
-                    "en": "192.168.1.1"
-                }
-            }],
-            "args": [{
-                "type": "device",
-                "name": "device",
-                "filter": "driver_id=plexserver"
-            }]
-        }, {
-            "id": "plex_stopped",
-            "title": {
-                "en": "Plex stops playing"
-            },
-            "hint": {
-                "en": "Cards can use the following tokens. PLAYER: The player name as reported by Plex. USER: The username of the person playing the media. TITLE: The current title of the playing media, i.e. 'Ghostbusters'. TYPE: The type of media playing, available options are 'movie', 'show', 'track', 'picture'."
-            },
-            "tokens": [{
-                "name": "type",
-                "type": "string",
-                "title": {
-                    "en": "Type"
-                },
-                "example": {
-                    "en": "Movie"
-                }
-            }, {
-                "name": "title",
-                "type": "string",
-                "title": {
-                    "en": "Title"
-                },
-                "example": {
-                    "en": "Batman"
-                }
-            }, {
-                "name": "user",
-                "type": "string",
-                "title": {
-                    "en": "User"
-                },
-                "example": {
-                    "en": "Dennie de Groot"
-                }
-            }, {
-                "name": "player",
-                "type": "string",
-                "title": {
-                    "en": "Player"
-                },
-                "example": {
-                    "en": "NVIDIA Shield"
-                }
-            }, {
-                "name": "address",
-                "type": "string",
-                "title": {
-                    "en": "IP address"
-                },
-                "example": {
-                    "en": "192.168.1.1"
-                }
-            }],
-            "args": [{
-                "type": "device",
-                "name": "device",
-                "filter": "driver_id=plexserver"
-            }]
-        }, {
-            "id": "plex_paused",
-            "title": {
-                "en": "Plex pauses"
-            },
-            "hint": {
-                "en": "Cards can use the following tokens. PLAYER: The player name as reported by Plex. USER: The username of the person playing the media. TITLE: The current title of the playing media, i.e. 'Ghostbusters'. TYPE: The type of media playing, available options are 'movie', 'show', 'track', 'picture'."
-            },
-            "tokens": [{
-                "name": "type",
-                "type": "string",
-                "title": {
-                    "en": "Type"
-                },
-                "example": {
-                    "en": "Movie"
-                }
-            }, {
-                "name": "title",
-                "type": "string",
-                "title": {
-                    "en": "Title"
-                },
-                "example": {
-                    "en": "Batman"
-                }
-            }, {
-                "name": "user",
-                "type": "string",
-                "title": {
-                    "en": "User"
-                },
-                "example": {
-                    "en": "Dennie de Groot"
-                }
-            }, {
-                "name": "player",
-                "type": "string",
-                "title": {
-                    "en": "Player"
-                },
-                "example": {
-                    "en": "NVIDIA Shield"
-                }
-            }, {
-                "name": "address",
-                "type": "string",
-                "title": {
-                    "en": "IP address"
-                },
-                "example": {
-                    "en": "192.168.1.1"
-                }
-            }],
-            "args": [{
-                "type": "device",
-                "name": "device",
-                "filter": "driver_id=plexserver"
-            }]
-        }],
-        "conditions": [{
-            "id": "plex_is_playing",
-            "title": {
-                "en": "!{{Is playing|Is not playing}}"
-            },
-            "hint": {
-                "en": "Cards can use the following tokens. PLAYER: The player name as reported by Plex."
-            },
-            "args": [{
-                "type": "device",
-                "name": "device",
-                "filter": "driver_id=plexserver"
-            }, {
-                "name": "player",
-                "type": "text",
-                "placeholder": {
-                    "en": "Player name or ip address"
-                }
-            }]
-        }, {
-            "id": "plex_is_paused",
-            "title": {
-                "en": "!{{Is paused|Is not paused}}"
-            },
-            "hint": {
-                "en": "Cards can use the following tokens. PLAYER: The player name as reported by Plex."
-            },
-            "args": [{
-                "type": "device",
-                "name": "device",
-                "filter": "driver_id=plexserver"
-            }, {
-                "name": "player",
-                "type": "text",
-                "placeholder": {
-                    "en": "Player name or ip address"
-                }
-            }]
-        }]
-    },
-    "drivers": [{
-        "id": "plexserver",
-        "name": {
-            "en": "Plex Media Server",
-            "nl": "Plex Media Server"
-        },
-        "images": {
-            "large": "/drivers/plexserver/assets/images/large.png",
-            "small": "/drivers/plexserver/assets/images/small.png"
-        },
-        "class": "other",
-        "capabilities": [],
-        "pair": [{
-            "id": "server_credentials",
-            "options": {
-                "logo": "/app/com.plex.notifier/assets/icon.svg"
+            {
+              "id": "version",
+              "type": "label",
+              "label": {
+                "en": "Plex Server Version",
+                "nl": "Plex Server Versie"
+              }
             }
-        }, {
-            "id": "list_devices",
-            "template": "list_devices",
-            "navigation": {
-                "next": "add_devices"
-            }
-        }, {
-            "id": "add_devices",
-            "template": "add_devices"
-        }],
-        "settings": [{
-            "type": "group",
-            "label": {
-                "en": "General settings",
-                "nl": "Algemene instellingen"
-            },
-            "children": [{
-                "id": "host",
-                "type": "text",
-                "label": {
-                    "en": "Plex Server Host",
-                    "nl": "Plex Server Host"
-                }
-            }, {
-                "id": "port",
-                "type": "text",
-                "label": {
-                    "en": "Plex Sever Port",
-                    "nl": "Plex Sever Port"
-                }
-            }, {
-                "id": "version",
-                "type": "label",
-                "label": {
-                    "en": "Plex Server Version",
-                    "nl": "Plex Server Versie"
-                }
-            }]
-        }]
-    }]
+          ]
+        }
+      ]
+    }
+  ]
 }
