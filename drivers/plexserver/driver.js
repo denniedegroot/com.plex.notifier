@@ -38,34 +38,37 @@ class PlexServer extends Driver {
             }
         });
 
-        await this.plexClient.query('/pms/servers.xml').then((result) => {
-            servers = result.MediaContainer.Server;
+        await this.plexClient.query('/api/resources').then((result) => {
+            servers = result.MediaContainer.Device;
         });
+
+        if (servers === undefined)
+            return [];
 
         await Promise.all(servers.map(async (server) => {
             let host_connection = '';
+            let host_port = '';
 
-            if (!server.attributes.owned)
+            if (server.attributes.product !== 'Plex Media Server' || !server.attributes.owned)
                 return false;
 
-            if (server.attributes.localAddresses)
-                host_connection = server.attributes.localAddresses.split(',')[0]
-            else
-                host_connection = server.attributes.host;
+            await Promise.all(server.Connection.map(async (connection) => {
+                if (host_connection === '' || connection.attributes.local === '1') {
+                    host_connection = connection.attributes.address;
+                    host_port = connection.attributes.port;
+                }
+            }));
 
             foundDevices.push({
                 name : server.attributes.name,
                 data : {
-                    id : server.attributes.machineIdentifier,
+                    id : server.attributes.clientIdentifier,
                     accessToken : server.attributes.accessToken
                 },
                 settings : {
                     host : host_connection,
-                    port : server.attributes.port,
-                    localAddresses : server.attributes.localAddresses,
-                    externalAddress : server.attributes.host,
-                    owned : server.attributes.owned,
-                    version : server.attributes.version
+                    port : host_port,
+                    version : server.attributes.productVersion
                 }
             });
         }));
