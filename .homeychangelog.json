@@ -4,5 +4,8 @@
   },
   "1.0.2": {
     "en": "Fixed server pairing"
+  },
+  "1.0.3": {
+    "en": "Bugfixes"
   }
 }
