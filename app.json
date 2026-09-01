@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "compatibility": ">=5.0.0",
   "sdk": 3,
+  "brandColor": "#e5a00d",
   "name": {
     "en": "Plex Notifier"
   },
@@ -244,6 +245,9 @@
         "title": {
           "en": "!{{Is playing|Is not playing}}"
         },
+        "titleFormatted": {
+          "en": "!{{Is playing|Is not playing}} [[player]]"
+        },
         "hint": {
           "en": "Cards can use the following tokens. PLAYER: The player name as reported by Plex."
         },
@@ -266,6 +270,9 @@
         "id": "plex_is_paused",
         "title": {
           "en": "!{{Is paused|Is not paused}}"
+        },
+        "titleFormatted": {
+          "en": "!{{Is paused|Is not paused}} [[player]]"
         },
         "hint": {
           "en": "Cards can use the following tokens. PLAYER: The player name as reported by Plex."

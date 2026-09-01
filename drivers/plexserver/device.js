@@ -17,8 +17,8 @@ class DevicePlexServer extends Device {
     async _initDevice() {
         this.log('_initDevice');
 
-        this.plexPlayerStates = [];
-        this.plexPlayerSessions = [];
+        this.plexPlayerStates = {};
+        this.plexPlayerSessions = {};
         this.stateEmitter = new EventEmitter();
 
         this.setUnavailable();
@@ -175,7 +175,7 @@ class DevicePlexServer extends Device {
 
             let session = container.filter(item => item.sessionKey === event.key);
 
-            if (!session) {
+            if (session.length === 0) {
                 this.error('_openSessionHandler no valid session found');
                 return;
             }
